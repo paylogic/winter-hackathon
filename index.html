@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Hackaton</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <style type="text/css">
+      @import url('http://fonts.googleapis.com/css?family=Muli');
+      body {
+        font-family: "Muli", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        padding-top: 20px;
+        padding-bottom: 20px;
+      }
+      p, li {
+        line-height: 1.5em;
+        font-size: 1.2em;
+      }
+      li { list-style-type: square; }
+      .nav-header {
+        font-weight: normal;
+      }
+      #success, #error {
+        margin-top: -30px;
+        margin-left: 0px;
+        display: none;
+      }
+      h1 a {
+        text-transform: capitalize;
+      }
+    </style>
+    <link href="assets/css/bootstrap-responsive.min.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="assets/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.1.6.min.js"></script>
+    <script type="text/javascript">
+      Parse.initialize("HkTt2VpkYAVnVrfxwv450Av1QsHOp3O51lMOWFW5", "92GmZyLyPt3O1MG4bYa29cqqshuxCoyCVRVqtOs6");
+      function send_idea() {
+        try {
+          var github_username = $("#github_username")[0].value;
+          var idea_text = $("#idea")[0].value;
+          var email = $("#email")[0].value;
+          var Idea = Parse.Object.extend("Idea");
+          var idea = new Idea();
+          idea.save(
+            {github_username: github_username, idea: idea_text, email: email},
+            {
+              success: function(object) {
+                $("#send-idea").fadeOut("slow");
+                $("#success").fadeIn("slow");
+              },
+              error: function(model, error) {
+                $("#error").fadeIn("slow");
+              }});
+        } catch (err) {
+          $(".error").show();
+        }
+        return false;
+
+      }
+    </script>
+  </head>
+
+  <body>
+    <div class="container">
+
+      <!-- Main hero unit for a primary marketing message or call to action -->
+      <div class="hero-unit">
+        <div class="row-fluid">
+          <div class="span8">
+            <h1 style="font-size:54px;">Pygrunn Winter Hackaton</h1>
+            <div id="days-left" class="progress">
+              <div class="bar" style="width: 0%;"></div>
+            </div>
+            <h2 id="time" class="time"></h2>
+            <p>Let's get together and build something!</p>
+          </div>
+          <div class="span4">
+
+
+            <form class="form" onsubmit="javascript:return send_idea(this)">
+              <input class="span12" type="text" name="github_username" id="github_username" title="Your github profile" placeholder="Your github username"></input>
+              <input class="span12" type="text" name="email" id="email" title="Your email" placeholder="Your email"></input>
+              <textarea id="idea" name="idea" rows="8" class="span12" title="Your idea" placeholder="Write your idea here...                                                                                                                                                                       For example, I want to do a project with arduino that raise an alarm when somebody is farting. We know, this is not very original, but we are sure that you can improve it!"></textarea>
+              <div class="controls">
+                <div class="span7"></div>
+                <button id="send-idea" type="submit" class="span5 btn btn-primary">Join!</button>
+                <div id="error" class="span12">
+                  <div class="alert alert-error">
+                    There was an error sending your idea :( Please <a href="mailto://oscar.vilaplana@paylogic.eu&subject=Hackaton">email it to us</a>.
+                  </div>
+                </div>
+                <div id="success" class="span12">
+                  <div class="alert alert-success">
+                    We received your idea and we'll be in contact.
+                  </div>
+                </div>
+
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- Example row of columns -->
+      <div class="row">
+        <div class="span" style="width:45px;"></div>
+        <div class="span5">
+          <div class="nav-header"><h1>Rules</h1></div>
+          <ul>
+            <li>We get together one weekend and build something (and finish it!).</li>
+            <li>The source will be released under the <a href="http://www.gnu.org/licenses/gpl-2.0.html">GPL-2.0</a>.</li>
+            <li>The product must be online and usable at the end of the event.</li>
+          </ul>
+          <p>We need <strong>you</strong> to pitch us your idea for a project that can be finished in one weekend.</p>
+          <p>Please <a href="mailto:oscar.vilaplana@paylogic.eu">send it to us</a>, and tell us this:<p>
+          <ul>
+            <li>What is it?</li>
+            <li>What is it for?</li>
+            <li>What features does it have? Write the User Stories</li>
+            <li>How will we organize ourselves? What features can be developed in parallel?</li>
+          </ul>
+          <p>The final date to send us your ideas is Sunday, November 11th. This gives us at least 6 days to help you clarify it.</p>
+        </div>
+        <div class="span" style="width:30px;"></div>
+        <div class="span5">
+          <div class="nav-header"><h1>Schedule</h1></div>
+          <table class="table table-bordered table-striped">
+            <tr>
+              <th>
+                Saturday, November 17th
+              </th>
+            </tr>
+            <tr>
+              <td>
+                <ol>
+                  <li>All pitchers get 3 minutes to explain their idea.</li>
+                  <li>First voting.</li>
+                  <li>The pitchers of the 3 best ideas get 15 minutes to explain their idea in more detail.&nbsp;</li>
+                  <li>Second voting.</li>
+                  <li>We make task forces and divide the work</li>
+                  <li>We hack!</li>
+                  <li>End of the day: First demo.</li>
+                </ol>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                Sunday, November 18th
+              </th>
+            </tr>
+            <tr>
+              <td>
+                <ol>
+                  <li>Everyone continues work.</li>
+                  <li>Afternoon: Final demo.</li>
+                  <li>We give some publicity to what we built: Hackernews, Python mailing lists, Reddit. Heck, we could even issue a press release.</li>
+                  <li>Beer!</li>
+                </ol>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span" style="width:45px;"></div>
+        <div class="span10">
+          <div class="nav-header"><h1>Location <small><a href="https://www.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=Paylogic+Nederland+B.V.,+Nieuwe+Boteringestraat+28-30,+Groningen,+Netherlands&amp;aq=0&amp;oq=paylo&amp;sll=37.0625,-95.677068&amp;sspn=40.324283,86.572266&amp;ie=UTF8&amp;hq=paylogic+nederland+bv&amp;hnear=Nieuwe+Boteringestraat+28,+9712+PM+Binnenstad,+Groningen,+The+Netherlands&amp;t=m&amp;ll=53.222902,6.560613&amp;spn=0.006295,0.006295" target="_blank">Nieuwe Boteringestraat 28, Groningen</a></small></h1></div>
+
+          <div id="map_canvas" style="z-index:1;position:relative;top:0px;left:0px;width:1024px;height:400px;"></div>
+
+          <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=AIzaSyCffrqUK6zMnIGvM_FTz8yH3n2p4TRmQG0&sensor=false"
+            type="text/javascript"></script>
+          <script type="text/javascript">
+
+            function initialize() {
+              if (GBrowserIsCompatible())
+              {
+                var map = new GMap2(document.getElementById("map_canvas"));
+                map.setCenter(new GLatLng(53.223443,6.560597), 15);
+                map.addControl(new GLargeMapControl3D());
+
+                var PaylogicIcon = new GIcon(G_DEFAULT_ICON);
+                PaylogicIcon.image = "assets/img/paylogic.png";
+                PaylogicIcon.iconSize = new GSize(151, 68);
+                PaylogicIcon.iconAnchor = new GPoint(16, 68);
+
+                markerOptions = { icon:PaylogicIcon };
+
+                var point = new GLatLng(53.222900,6.560200);
+                map.addOverlay(new GMarker(point, markerOptions));
+              }
+            }
+            initialize();
+          </script>
+
+        </div>
+      </div>
+
+      <hr>
+
+    </div> <!-- /container -->
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="assets/js/jquery.jcountdown.min.js"></script>
+    <script>
+      $(document).ready(function() {
+        $("#time").countdown({
+          date: "november 17, 2012 10:00",
+          onComplete: function( event ) {
+          },
+          leadingZero: false,
+          htmlTemplate: "%d <span class=\"cd-time\">days</span>, %h <span class=\"cd-time\">hours</span>, %i <span class=\"cd-time\">minutes</span> & %s <span class=\"cd-time\">seconds</span>"
+        });
+
+
+        // This started on Oct 18th. 29 days left:
+        //        30 - 100
+        // days_left - x
+        var percent = (30 - $("#time").countdown("getSettings", "daysLeft")) * 100 / 30;
+        percent = Math.round(percent) + '%';
+        $("#days-left > .bar").css("width", percent);
+      });
+    </script>
+  </body>
+</html>
