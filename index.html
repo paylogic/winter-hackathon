@@ -32,6 +32,12 @@
       h1 a {
         text-transform: capitalize;
       }
+      .green {
+        color: #3f9528;
+      }
+      .red {
+        color: #DD4814;
+      }
     </style>
     <link href="assets/css/bootstrap-responsive.min.css" rel="stylesheet">
 
@@ -107,12 +113,12 @@
       <div class="hero-unit">
         <div class="row-fluid">
           <div class="span8">
-            <h1 style="font-size:54px;">Pygrunn Winter Hackathon</h1>
+            <h1 style="font-size:54px;"><span class="green">Py</span><span class="red">Grunn</span> Winter Hackathon</h1>
+	    <p style="height:50px">&nbsp</p>
             <div id="days-left" class="progress progress-warning">
               <div class="bar" style="width: 0%;"></div>
             </div>
             <h2 id="time" class="time"></h2>
-            <p>Let's get together and build something!</p>
           </div>
 	  <a id="form"></a>
           <div class="span4">
@@ -150,6 +156,7 @@
 
       <!-- Example row of columns -->
       <div class="row">
+
         <div class="span" style="width:45px;"></div>
         <div class="span5">
           <div class="nav-header"><h1>Rules</h1></div>
@@ -256,7 +263,7 @@
           onComplete: function( event ) {
           },
           leadingZero: false,
-          htmlTemplate: "%d <span class=\"cd-time\">days</span>, %h <span class=\"cd-time\">hours</span>, %i <span class=\"cd-time\">minutes</span> & %s <span class=\"cd-time\">seconds</span>"
+          htmlTemplate: "November 17th & 18th (%d <span class=\"cd-time\">days</span> left!)"
         });
 
 
