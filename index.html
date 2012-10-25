@@ -16,7 +16,7 @@
         padding-top: 20px;
         padding-bottom: 20px;
       }
-      p, li, dd {
+      p, li, dd, .accordion {
         line-height: 1.5em;
         font-size: 1.2em;
       }
@@ -58,20 +58,20 @@
       Parse.initialize("HkTt2VpkYAVnVrfxwv450Av1QsHOp3O51lMOWFW5", "92GmZyLyPt3O1MG4bYa29cqqshuxCoyCVRVqtOs6");
       function send_idea() {
         try {
-	  $(".control-label").hide();
-	  $(".control-group").removeClass("error");
+          $(".control-label").hide();
+          $(".control-group").removeClass("error");
           var github_username = $("#github_username")[0].value;
           var email = $("#email")[0].value;
           var idea_text = $("#idea")[0].value;
 
-	  if (github_username === "") {
-              $("#github_username").parent().addClass("error").children().show();
+          if (github_username === "") {
+            $("#github_username").parent().addClass("error").children().show();
           }
-	  if (email === "") {
-	      $("#email").parent().addClass("error").children().show();
-	  }
-	  if (github_username === "" || email === "") {
-	      return false;
+          if (email === "") {
+            $("#email").parent().addClass("error").children().show();
+          }
+          if (github_username === "" || email === "") {
+            return false;
           }
           var Idea = Parse.Object.extend("Idea");
           var idea = new Idea();
@@ -114,27 +114,27 @@
         <div class="row-fluid">
           <div class="span8">
             <h1 style="font-size:54px;"><span class="green">Py</span><span class="red">Grunn</span> Winter Hackathon</h1>
-	    <p style="height:40px">&nbsp;</p>
+            <p style="height:40px">&nbsp;</p>
             <h2 id="time" class="otime"></h2>
 
             <div id="days-left" class="progress progress-warning">
               <div class="bar" style="width: 0%;"></div>
             </div>
-	    <h3><span style="color: #bbb">Last day to send your ideas:</span> <span style="color: #777">Sunday, November 11th</span></h3>
+            <h3><span style="color: #bbb">Last day to send your ideas:</span> <span style="color: #777">Sunday, November 11th</span></h3>
           </div>
-	  <a id="form"></a>
+          <a id="form"></a>
           <div class="span4">
 
 
             <form class="form" onsubmit="javascript:return send_idea(this)">
-<div class="control-group">
-<label class="control-label" style="display:none" for="github_username">Please fill in your github username.</label>
-              <input class="span12" type="text" name="github_username" id="github_username" title="Your github profile" placeholder="Your github username"/>
-</div>
-<div class="control-group">
-<label class="control-label" style="display:none" for="email">Please fill in your email.</label>
-              <input class="span12" type="email" name="email" id="email" title="Your email" placeholder="Your email"/>
-</div>
+              <div class="control-group">
+                <label class="control-label" style="display:none" for="github_username">Please fill in your github username.</label>
+                <input class="span12" type="text" name="github_username" id="github_username" title="Your github profile" placeholder="Your github username"/>
+              </div>
+              <div class="control-group">
+                <label class="control-label" style="display:none" for="email">Please fill in your email.</label>
+                <input class="span12" type="email" name="email" id="email" title="Your email" placeholder="Your email"/>
+              </div>
               <textarea id="idea" name="idea" rows="8" class="span12" title="Your idea" placeholder="Write your idea here (optional)"></textarea>
               <div class="controls">
                 <div class="span7"></div>
@@ -158,13 +158,55 @@
 
       <!-- Example row of columns -->
       <div class="row">
+        <span class="span10 offset1">
+          <div class="nav-header"><h1>Current ideas</h1></div>
+          <div class="accordion" id="accordion2">
+            <div class="accordion-group">
+              <div class="accordion-heading">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
+                  Collapsible Group Item #1
+                </a>
+              </div>
+              <div id="collapseOne" class="accordion-body collapse">
+                <div class="accordion-inner">
+                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-group">
+              <div class="accordion-heading">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
+                  Collapsible Group Item #2
+                </a>
+              </div>
+              <div id="collapseTwo" class="accordion-body collapse">
+                <div class="accordion-inner">
+                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-group">
+              <div class="accordion-heading">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseThree">
+                  Collapsible Group Item #3
+                </a>
+              </div>
+              <div id="collapseThree" class="accordion-body collapse">
+                <div class="accordion-inner">
+                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                </div>
+              </div>
+            </div>
+          </div>
+        </span>
+      </div>
+      <div class="row">
 
-        <div class="span" style="width:45px;"></div>
-        <div class="span5">
+        <div class="span5 offset1">
           <div class="nav-header"><h1>Rules</h1></div>
           <ul>
             <li>We get together one weekend and build something (and finish it!).</li>
-	    <li>We will use git, and we will push our work to the Winter&nbsp;Hackaton github repository.</li>
+            <li>We will use git, and we will push our work to the Winter&nbsp;Hackaton github repository.</li>
             <li>The source will be released under the <a href="http://www.gnu.org/licenses/gpl-2.0.html">GPL-2.0</a>.</li>
             <li>The product must be online and usable at the end of the event.</li>
           </ul>
@@ -178,7 +220,6 @@
           </ul>
           <p>The <strong>final date</strong> to send us your ideas is <strong>Sunday,&nbsp;November&nbsp;11th</strong>. This gives us at least 6 days to review it and help you get it ready.</p>
         </div>
-        <div class="span" style="width:30px;"></div>
         <div class="span5">
           <div class="nav-header"><h1>Schedule</h1></div>
           <table class="table table-bordered table-striped">
@@ -227,11 +268,10 @@
         </div>
       </div>
       <div class="row">
-        <div class="span" style="width:45px;"></div>
-        <div class="span10">
+        <div class="span10 offset1">
           <div class="nav-header"><h1>Location <small><a href="https://www.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=Paylogic+Nederland+B.V.,+Nieuwe+Boteringestraat+28-30,+Groningen,+Netherlands&amp;aq=0&amp;oq=paylo&amp;sll=37.0625,-95.677068&amp;sspn=40.324283,86.572266&amp;ie=UTF8&amp;hq=paylogic+nederland+bv&amp;hnear=Nieuwe+Boteringestraat+28,+9712+PM+Binnenstad,+Groningen,+The+Netherlands&amp;t=m&amp;ll=53.222902,6.560613&amp;spn=0.006295,0.006295" target="_blank">Nieuwe Boteringestraat 28, Groningen</a></small></h1></div>
 
-          <div id="map_canvas" style="z-index:1;position:relative;top:0px;left:0px;width:1024px;height:400px;"></div>
+          <div id="map_canvas" class="span10" style="margin: 0; padding: 0; height: 400px;"></div> <!-- style="z-index:1;position:relative;top:0px;left:0px;width:1024px;height:400px;"></div> -->
 
           <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=AIzaSyCffrqUK6zMnIGvM_FTz8yH3n2p4TRmQG0&amp;sensor=false"
             type="text/javascript"></script>
@@ -261,12 +301,11 @@
         </div>
       </div>
 
-      <hr>
-
     </div> <!-- /container -->
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
     <script src="assets/js/jquery.jcountdown.min.js"></script>
+    <script src="assets/js/bootstrap-collapse.js"></script>
     <script>
       $(document).ready(function() {
         $("#time").countdown({
