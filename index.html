@@ -16,7 +16,7 @@
         padding-top: 20px;
         padding-bottom: 20px;
       }
-      p, li, dd, .accordion {
+      p, li, dd, .accordion-heading {
         line-height: 1.5em;
         font-size: 1.2em;
       }
@@ -160,40 +160,94 @@
       <div class="row">
         <span class="span10 offset1">
           <div class="nav-header"><h1>Current ideas</h1></div>
-          <div class="accordion" id="accordion2">
+
+          <p>The ideas <strong>must</strong> be improved before being selected, but this is a small recollection to show that the people are really interested on the hackaton, please, send us your idea ASAP! Remember that Sunday is the deadline for send it.</p>
+
+          <div class="accordion" id="ideas">
             <div class="accordion-group">
               <div class="accordion-heading">
-                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
-                  Collapsible Group Item #1
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#ideas" href="#idea2">
+                  Password store
                 </a>
               </div>
-              <div id="collapseOne" class="accordion-body collapse">
+              <div id="idea2" class="accordion-body collapse">
                 <div class="accordion-inner">
-                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                  <p>A password store where you are able to have multiple password repositories, personal and shared.</p>
+                  <p>This sysem should be able to talk with a web interface as wel as trough an API to enable people to build their own interfaces.</p>
                 </div>
               </div>
             </div>
             <div class="accordion-group">
               <div class="accordion-heading">
-                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
-                  Collapsible Group Item #2
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#ideas" href="#idea3">
+                  Remove flask dependencies from flasksqlalchemy
                 </a>
               </div>
-              <div id="collapseTwo" class="accordion-body collapse">
+              <div id="idea3" class="accordion-body collapse">
                 <div class="accordion-inner">
-                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                  <p>Fork flaskalchemy and remove flask branding. introduce a common way to share sqlalchemy applications, configure the connection/session settings and common declarative base class.</p>
                 </div>
               </div>
             </div>
             <div class="accordion-group">
               <div class="accordion-heading">
-                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseThree">
-                  Collapsible Group Item #3
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#ideas" href="#idea4">
+                  Map Reduce with redis
                 </a>
               </div>
-              <div id="collapseThree" class="accordion-body collapse">
+              <div id="idea4" class="accordion-body collapse">
                 <div class="accordion-inner">
-                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                  <p>A simplified map reduce application using a state machine and redis as a job queue.</p>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-group">
+              <div class="accordion-heading">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#ideas" href="#idea5">
+                  impressjs generator from markdown
+                </a>
+              </div>
+              <div id="idea5" class="accordion-body collapse">
+                <div class="accordion-inner">
+                  <p>Time ago I've started a project to impress.js easily from markdown files, I got this: <a href="https://github.com/agonzalezro/easyimpress">https://github.com/agonzalezro/easyimpress</a>.<p>
+                  <p>But it could be nice to implement easily all the transictions.</p>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-group">
+              <div class="accordion-heading">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#ideas" href="#idea6">
+                  Slides generator
+                </a>
+              </div>
+              <div id="idea6" class="accordion-body collapse">
+                <div class="accordion-inner">
+                  <p>A long time ago, in a galaxy far... I saw an application for ipad that make presentations basically letting you do this:</p>
+
+                  <ul>
+                    <li>Select one image for background (fullscreen): we can use some google api or flicker api to get images from internet.</li>
+                    <li>Write text (around a line).</li>
+                    <li>Change the font family text. But the idea is that the text is always trying to be the bigger possible inside this slide.</li>
+                  </ul>
+
+                  <p>Python will be used for save your presentations with your user account, all the backoffice & contact APIs (in case that can not be done from JS). Clien side can be done with backbone.</p>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-group">
+              <div class="accordion-heading">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#ideas" href="#idea7">
+                  Sleeper Cell (spy game)
+                </a>
+              </div>
+              <div id="idea7" class="accordion-body collapse">
+                <div class="accordion-inner">
+                  <p>Game for group of people that spend some time with each other daily.  Suitable for group working in together in an office. Game Cell consists of 2 Teams (KGB, CIA), people in one Game Cell sould know each other and see each other daily. Game lasts 5 days, every morning some users get message and have to pass it to other members of the team. Some team members are moles working for the opposite team. Mole scores by collecting enemy data.</p>
+                  <p>We would have to build game master which would send messages daily and a site where players can report information they collected.</p>
+                  <p>There could be extensions for the game:</p>
+                  <ul>
+                    <li>Contact member of other Game Cell (other office in your  town).</li>
+                    <li>Use smartphone to drop and retrieve information from contact box in the field(think GPS, smartphone etc) encrypting information with simple cyphers - by hand or using encryption (<a href="https://play.google.com/store/apps/details?id=uk.co.franklinheath.enigmasim&hl=nl">enigma app</a>) or RSA</li>
                 </div>
               </div>
             </div>
