@@ -244,6 +244,9 @@
                 </div>
               </div>
             </div>
+
+
+
             <div class="accordion-group">
               <div class="accordion-heading">
                 <a class="accordion-toggle" data-toggle="collapse" data-parent="#ideas" href="#idea8">
@@ -289,6 +292,65 @@
                     <li>Backend</li>
                     <li>API connections</li>
                     <li>Graphic design</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+
+
+
+
+
+            <div class="accordion-group">
+              <div class="accordion-heading">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#ideas" href="#idea9">
+                  Automato
+                </a>
+              </div>
+              <div id="idea9" class="accordion-body collapse">
+                <div class="accordion-inner">
+                  <h3>What is it for?</h3>
+                  <p>In the old times, we had <a href="http://en.wikipedia.org/wiki/Finger_protocol">finger</a>, which provided status reports on a articular computer system or person on a network. Let's bring it back from the dead as a new and shiny API.</p>
+		  <p>The goal of Automato is to let you share information (like displaying what files you are currently working on in your project website) and automate stuff (like launching a pull and test suite run in your office computer, by using a website in your phone).</p>
+		  <p>Automato provides an HTTP API to send and receive information, and two simple clients: command line and javascript. It is up to the user to discover ways to use it.</p>
+                  <h3>What features does it have? List them and describe them</h3>
+                  <p>Each user can create (and own) a number of apps and channels. Each app can listen to or write on a number of channels. Apps can be open or protected by a secret key.<p>
+		  <p>Every time the user does an API call they must provide the app id (and the secret key if the app is protected).</p>
+		  <p>The owner of an app can add users to a protected app, grant the read and/or write access to each channel that the app uses, and group them in user groups.</p>
+		  <p>Users can identify themselves using oauth.</p>
+		  <p>JSON is used to encode the data.</p>
+		  <p>Examples:
+		    <ul>
+		      <li>Using the Javascript API, I make a simple html page that displays what feature I'm working on (at work), and what's my test coverage. I want to keep this information open only to my colleagues at work, so I add them to my app and I give them access to read the working-on and test-coverage channels.</li>
+		      <li>My colleagues sometimes have remarks about the files I'm working on. I add a comment field to my website, and I use the javascript API that sends the users' comments to my comments channel. I grant the user group of my work colleagues write access to this channel. Then, using the command line client, I write a small plugin for my text editor that displays the comments in the status line.</li>
+		      <li>Sometimes I see a book that I want to check out later. I add a channel for it, and I write a message to it using the command line client every time I see such a book. I add a section to my blog that displays the books I'm interested in using the Javascript API and adds a link to the Amazon search page for this title.</li>
+		      <li>Sometimes while on the go I'm browsing the web and I see a file I want to download, but it's too big to download on my measy and limited mobile data contract. I go to my Automato page and I write a message to my to-download channel with the link to the file. At home, I have a script running that I wrote using the Automato Python client that listens to this client and downloads the file for me. A few minutes later, I check my Automato page and I see that my script at home reports me that the link I posted was wrong. I post the link again (I had messed up with the copy/paste in my phone). Later, I check my Automato page and I see that my home computer reports that the file has been downloaded and is waiting for me at home. I'm happy.</li>
+		      <li>While talking to my gatekeeper colleagues, they tell me that a very complex case has been finally merged into the stable branch. I am curious whether the changes in this branch will break my code or have merge conflicts with it, but I don't want to leave the conversation. Luckily, I had added an extra feature to my Working On page that allows me to tell my office computer to pull and merge the stable branch into my code and run the unit tests. I do it. A few minutes later, my Working On page reports that the stable branch is merged and all tests still pass. I continue to enjoy the conversation confident that no nasty merge conflicts are awaiting for me at my desk.</li>
+		      </ul>
+		  <p>Functionalities (they are the same in the HTTP API, command line client and Javascript client</p>
+                  <ul>
+                    <li>Post a message to a channel</li>
+		    <li>Read messages from a channel, optionally deleting them as they are read.</li>
+		    <li>Create a user group</li>
+		    <li>Assign apis to a user group</li>
+		    <li>Give read/write permissions to a user group and channel</li>
+		    <li>Create channels</li>
+		    <li>Create apps</li>
+		    <li>Assign channels to apps and give read/write permissions</li>
+		  </ul>
+		  <p>Extra functionalities</p>
+		  <ul>
+		    <li>Push notification to a website</li>
+		  </ul>
+                  <p>We can use Parse or Redis to store the data.</p>
+                  <h3>How will we organize ourselves? What features can be developed in parallel?</h3>
+                  <p>Teams:</p>
+                  <ul>
+                    <li>REST API</li>
+                    <li>Python API/command line client</li>
+                    <li>Javascript client</li>
+                    <li>Examples (implement some of the examples that I mention here, for example)</li>
                   </ul>
                 </div>
               </div>
